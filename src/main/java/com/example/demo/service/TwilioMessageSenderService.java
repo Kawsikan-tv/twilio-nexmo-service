@@ -35,7 +35,7 @@ public class TwilioMessageSenderService {
             String toNumber = messageModel.getMobileNumber();
             String messageBody = messageModel.getSmsText();
             //94773111099
-            VonageClient client = VonageClient.builder().apiKey("66fab03b").apiSecret("6aTJVP4lC3Q4Na4H").build();
+            VonageClient client = VonageClient.builder().apiKey("950ab14d").apiSecret("LigzBPyscS2rI3h9").build();
             TextMessage message = new TextMessage("Vonage APIs",
                     toNumber,
                     messageBody
