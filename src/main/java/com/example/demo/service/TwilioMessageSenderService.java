@@ -46,7 +46,7 @@ public class TwilioMessageSenderService {
             SmsSubmissionResponse response = client.getSmsClient().submitMessage(message);
 
             if (response.getMessages().get(0).getStatus() == MessageStatus.OK) {
-                return "Message sent successfully.";
+                return "Message sent successfully with nexmo.";
             } else {
                 return "Message failed with error: " + response.getMessages().get(0).getErrorText();
             }
@@ -76,7 +76,7 @@ public class TwilioMessageSenderService {
 
         } catch (Exception e) {
             logger.error("Exception in call" + e);
-            return "Failed to initiate call.";
+            return "Failed to initiate call via Twilio.";
         }
     }
 
@@ -96,15 +96,7 @@ public class TwilioMessageSenderService {
             return "Message sent successfully via Twilio.";
 
         } catch (Exception e) {
-            return "Message failed to send.";
+            return "Failed to send message via Twilio.";
         }
     }
 }
-
-
-// String smsText = messageRequest.getSmsText();
-//            PhoneNumber receiverPhoneNumber = new PhoneNumber(mobileNumber);
-//            PhoneNumber senderTwilioPhoneNumber = new PhoneNumber(twilioSenderNumber);
-//            MessageCreator creator = com.twilio.rest.api.v2010.account.Message
-//                    .creator(receiverPhoneNumber, senderTwilioPhoneNumber, smsText);
-//            Message create = creator.create();
